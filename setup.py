@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="colliderfeed",
-    version="0.0.1",
+    version="0.0.2",
     description="Data feed for Intech Supercollider contest",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -20,14 +20,14 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ],
-    packages=["rediz"],
+    packages=["colliderfeed"],
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
     install_requires=["asyncio","aiohttp", "requests","pathlib","retrying"],
     entry_points={
         "console_scripts": [
-            "rediz=rediz.__main__:main",
+            "colliderfeed=colliderfeed.__main__:main",
         ]
      },
      )
