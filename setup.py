@@ -7,11 +7,11 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="colliderfeed",
-    version="0.0.2",
+    version="0.0.3",
     description="Data feed for Intech Supercollider contest",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="www.3za.org/collider",
+    url="https://github.com/microprediction/colliderfeed.git",
     author="microprediction",
     author_email="info@3za.org",
     license="MIT",
@@ -24,7 +24,7 @@ setup(
     test_suite='pytest',
     tests_require=['pytest'],
     include_package_data=True,
-    install_requires=["asyncio","aiohttp", "requests","pathlib","retrying"],
+    install_requires=["asyncio","aiohttp", "requests","pathlib","retrying","schedule","contexttimer"],
     entry_points={
         "console_scripts": [
             "colliderfeed=colliderfeed.__main__:main",

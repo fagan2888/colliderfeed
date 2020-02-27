@@ -29,12 +29,10 @@ def retry_if_result_none(result):
     """Return True if we should retry (in this case when result is None), False otherwise"""
     return result is None
 
-@retry(wait_exponential_multiplier=1000, wait_exponential_max=10000,retry_on_result=retry_if_result_none)
+@retry(stop_max_attempt_number=3,stop_max_delay=60000,retry_on_result=retry_if_result_none,wait_fixed=2000)
 def collider_prices(symbols):
     """ Get prices from market data feed """
     prices =  asyncio.run( fetch_prices(symbols=symbols ) )
-    if prices is None:
-        raise Exception("Feed may be down")
     return prices
 
 def set_or_touch( names, write_key, budgets, values=None, touch=True):
@@ -77,9 +75,13 @@ def minutely_feed_task():
             prev_prices = [ p for p in prices ]
 
 
-if __name__=="__main__":
+def run():
     schedule.every(1).minutes.do(minutely_feed_task)
     while True:
         schedule.run_pending()
         time.sleep(1)
+
+if __name__=="__main__":
+    run()
+
 
