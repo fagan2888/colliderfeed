@@ -10,6 +10,7 @@ This code is made available as an example of using crowd microprediction at www.
    :caption: Contents:
 
    configuration
+   further
 
 Indices and tables
 ==================

@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="colliderfeed",
-    version="0.0.3",
+    version="0.0.4",
     description="Data feed for Intech Supercollider contest",
     long_description=README,
     long_description_content_type="text/markdown",
